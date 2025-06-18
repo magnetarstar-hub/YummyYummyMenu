@@ -1,0 +1,37 @@
+[
+    {
+      "id": "1",
+      "FoodName": "Margherita Pizza",
+      "FoodDes": "Classic tomato sauce with mozzarella and basil",
+      "FoodPrice": 8.99,
+      "isFav": false
+    },
+    {
+      "id": "2",
+      "FoodName": "Cheeseburger",
+      "FoodDes": "Juicy beef patty with cheese, lettuce, and tomato",
+      "FoodPrice": 6.5,
+      "isFav": true
+    },
+    {
+      "id": "3",
+      "FoodName": "Caesar Salad",
+      "FoodDes": "Fresh romaine, parmesan, croutons, and Caesar dressing",
+      "FoodPrice": 5.75,
+      "isFav": false
+    },
+    {
+      "id": "4",
+      "FoodName": "Sushi Platter",
+      "FoodDes": "Assorted fresh nigiri and rolls",
+      "FoodPrice": 14.0,
+      "isFav": false
+    },
+    {
+      "id": "5",
+      "FoodName": "Spaghetti Bolognese",
+      "FoodDes": "Pasta with rich meat sauce and parmesan",
+      "FoodPrice": 9.25,
+      "isFav": true
+    }
+  ]
