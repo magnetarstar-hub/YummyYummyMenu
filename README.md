@@ -1,5 +1,5 @@
 # 🍽️ YummyYummyMenu
-
+(UNDER DEVELOPMENT)
 A beautiful and responsive React Native app built with **Expo** that allows users to browse delicious food items, mark favorites, and experience smooth offline-ready interactions — all powered by **Zustand**, **local storage**, and a clean modular architecture.
 
 ---
