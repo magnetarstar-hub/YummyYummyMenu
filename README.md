@@ -55,12 +55,6 @@ The global store (`/state/store.js`) handles:
 
 ---
 
-## 📷 Screenshots
-
-> *(Add screenshots of `MenuScreen`, `FavoritesScreen`, and food items here)*
-
----
-
 ## 💠 Installation
 
 ```bash
