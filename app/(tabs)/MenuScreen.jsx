@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, FlatList, StyleSheet, TextInput, Button, Text } from 'react-native';
 import MenuItem from '../../components/MenuItem';
 import foodList from '../../components/foodlist.json';
-import { useFoodStore } from '../../components/FoodStore';
 
 export default function MenuScreen() {
   const [query, setQuery] = useState('');

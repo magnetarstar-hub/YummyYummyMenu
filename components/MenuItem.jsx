@@ -2,9 +2,16 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useState } from "react";
+export default function MenuItem({ item }) {
+  const { FoodName, FoodDes, FoodPrice } = item;
 
-export default function MenuItem({ item, onFav }) {
-  const { FoodName, FoodDes, FoodPrice, isFav } = item;
+  const [isFav, setIsFav] = useState(item.isFav);
+
+
+  const onFav = () => {
+    setIsFav(pre => !pre);
+  };
 
   return (
     <View style={styles.widget}>
@@ -13,7 +20,7 @@ export default function MenuItem({ item, onFav }) {
         <Text style={styles.price}>${FoodPrice}</Text>
 
         <TouchableOpacity
-          onPress={() => onFav(item.id)}
+          onPress={() => onFav(item)}
           style={styles.favoriteButton}
           accessibilityLabel={isFav ? 'Remove from favorites' : 'Add to favorites'}
         >
