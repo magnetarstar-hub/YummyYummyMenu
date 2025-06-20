@@ -1,50 +1,81 @@
-# Welcome to your Expo app 👋
+# 🍽️ YummyYummyMenu
+*(UNDER DEVELOPMENT)
+*A beautiful and responsive React Native app built with **Expo** that allows users to browse delicious food items, mark favorites, and experience smooth offline-ready interactions — all powered by **Zustand**, **local storage**, and a clean modular architecture.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+---
 
-## Get started
+## 📱 Features
 
-1. Install dependencies
+✅ Browse a menu of food items with name, price, and description
+✅ Favorite your preferred dishes and access them anytime
+✅ Search for items with instant filtering
+✅ Offline support with local data caching
+✅ Smooth state management with **Zustand**
+✅ Modular code structure with reusable components
+✅ Fully responsive with support for multiple screen sizes
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## 🧹 Tech Stack
 
-   ```bash
-   npx expo start
-   ```
+* ⚛️ **React Native** (via Expo)
+* 🔂 **Zustand** – for global state management
+* 📂 **AsyncStorage** – for offline support
+* 📡 **Fetch API** – ready for integration with real APIs
+* 🤭 **React Navigation** – for screen and tab navigation
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🗂 Project Structure
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+/food-app
+│
+├── /assets             # Static assets (images, icons, fonts)
+├── /components         # UI components (MenuItem, FavoriteButton)
+├── /screens            # Screens (Menu, Favorites, Details)
+├── /navigation         # App navigation (Tab + Stack)
+├── /services           # API + Storage utilities
+├── /state              # Zustand store for saved foods
+├── /hooks              # Custom hooks (fetching, permissions, sync)
+├── /data               # Static JSON (mock food list)
+├── App.jsx             # App entry with navigation & providers
+└── app.json, etc.
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🧫 Zustand Store Overview
 
-To learn more about developing your project with Expo, look at the following resources:
+The global store (`/state/store.js`) handles:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+* `savedFoods`: array of favorited foods
+* `saveFood(food)`: adds a food item to favorites
+* `removeFood(id)`: removes a food item by ID
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+## 💠 Installation
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+git clone https://github.com/your-username/food-app
+cd food-app
+npm install
+npx expo start
+```
+
+---
+
+## 🔄 Future Improvements
+
+* Integrate a real REST API or Firebase backend
+* Add authentication (e.g., Google, email)
+* Improve animations and UI polish
+* Add category filters and food images
+* Sync favorites to cloud
+
+---
+
+## 📄 License
+
+MIT © [magnetarstar]([https://github.com/your-username](https://github.com/magnetarstar-hub))
