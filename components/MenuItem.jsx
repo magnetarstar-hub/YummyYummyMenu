@@ -4,7 +4,7 @@ import { router } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export default function MenuItem({ item, onFav }) {
-  const { FoodName, FoodDesc, FoodPrice, isFav } = item;
+  const { FoodName, FoodDes, FoodPrice, isFav } = item;
 
   return (
     <View style={styles.widget}>
@@ -30,8 +30,8 @@ export default function MenuItem({ item, onFav }) {
               pathname: '/FoodDetailsScreen',
               params: {
                 name: FoodName,
+                desc: FoodDes,
                 price: FoodPrice,
-                desc: FoodDesc,
               },
             })
           }

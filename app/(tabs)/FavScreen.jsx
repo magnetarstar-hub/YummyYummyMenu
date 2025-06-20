@@ -9,7 +9,7 @@ export default function FavScreen(){
         name,
         desc,
         price,
-    } = item.volumeInfo || {};
+    } = item || {};
     }
     return (
         <View style={styles.container}>
@@ -59,13 +59,14 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 16,
+    color: '#27ae60',
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 4,
   },
   desc: {
     fontSize: 13,
-    color: '#666',
+    color: '#000',
     textAlign: 'center',
     marginBottom: 4,
   },

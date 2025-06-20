@@ -1,16 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { View, FlatList, StyleSheet, TextInput, Button } from 'react-native';
+import React, { useState } from 'react';
+import { View, FlatList, StyleSheet, TextInput, Button, Text } from 'react-native';
 import MenuItem from '../../components/MenuItem';
 import foodList from '../../components/foodlist.json';
 import { useFoodStore } from '../../components/FoodStore';
 
 export default function MenuScreen() {
   const [query, setQuery] = useState('');
-  const { savedFood } = useFoodStore();
+  const [filteredData, setFilteredData] = useState(foodList);
 
-  useEffect(() => {
-    // your effect here if needed
-  }, []);
+  const SearchFood = () => {
+    const searchQuery = query.trim().toLowerCase();
+
+    if (searchQuery === '') {
+      setFilteredData(foodList);
+      return;
+    }
+
+    const results = foodList.filter(item =>
+      typeof item.name === 'string' &&
+      item.name.toLowerCase().includes(searchQuery)
+    );
+
+    setFilteredData(results);
+  };
 
   return (
     <View style={styles.container}>
@@ -20,13 +32,20 @@ export default function MenuScreen() {
         onChangeText={setQuery}
         style={styles.input}
       />
-      <Button title="Search" onPress={() => {/* your search handler here */}} />
+      <Button title="Search" onPress={SearchFood} />
+
+      {filteredData.length === 0 && (
+        <Text style={styles.noResult}>No food found.</Text>
+      )}
+
       <FlatList
-        data={foodList}
-        keyExtractor={(item) => item.id}
+        data={filteredData}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <MenuItem item={item} />}
         contentContainerStyle={styles.listContainer}
         numColumns={3}
+        columnWrapperStyle={styles.row}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
@@ -47,7 +66,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   listContainer: {
-    paddingBottom: 16,
-    gap: 12,
+    paddingBottom: 12,
+    gap: 1,
+  },
+  row: {
+    justifyContent: 'space-between',
+    marginBottom: 12,
+  },
+  noResult: {
+    textAlign: 'center',
+    color: 'gray',
+    fontSize: 16,
+    marginVertical: 20,
   },
 });

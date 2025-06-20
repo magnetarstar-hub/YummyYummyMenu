@@ -1,37 +1,107 @@
 [
-    {
-      "id": "1",
-      "FoodName": "Margherita Pizza",
-      "FoodDes": "Classic tomato sauce with mozzarella and basil",
-      "FoodPrice": 8.99,
-      "isFav": false
-    },
-    {
-      "id": "2",
-      "FoodName": "Cheeseburger",
-      "FoodDes": "Juicy beef patty with cheese, lettuce, and tomato",
-      "FoodPrice": 6.5,
-      "isFav": true
-    },
-    {
-      "id": "3",
-      "FoodName": "Caesar Salad",
-      "FoodDes": "Fresh romaine, parmesan, croutons, and Caesar dressing",
-      "FoodPrice": 5.75,
-      "isFav": false
-    },
-    {
-      "id": "4",
-      "FoodName": "Sushi Platter",
-      "FoodDes": "Assorted fresh nigiri and rolls",
-      "FoodPrice": 14.0,
-      "isFav": false
-    },
-    {
-      "id": "5",
-      "FoodName": "Spaghetti Bolognese",
-      "FoodDes": "Pasta with rich meat sauce and parmesan",
-      "FoodPrice": 9.25,
-      "isFav": true
-    }
-  ]
+  {
+    "id": "1",
+    "FoodName": "Margherita Pizza",
+    "FoodDes": "Classic tomato sauce with mozzarella and basil",
+    "FoodPrice": 8.99,
+    "isFav": false
+  },
+  {
+    "id": "2",
+    "FoodName": "Cheeseburger",
+    "FoodDes": "Juicy beef patty with cheese, lettuce, and tomato",
+    "FoodPrice": 6.5,
+    "isFav": true
+  },
+  {
+    "id": "3",
+    "FoodName": "Caesar Salad",
+    "FoodDes": "Fresh romaine, parmesan, croutons, and Caesar dressing",
+    "FoodPrice": 5.75,
+    "isFav": false
+  },
+  {
+    "id": "4",
+    "FoodName": "Sushi Platter",
+    "FoodDes": "Assorted fresh nigiri and rolls",
+    "FoodPrice": 14.0,
+    "isFav": false
+  },
+  {
+    "id": "5",
+    "FoodName": "Spaghetti Bolognese",
+    "FoodDes": "Pasta with rich meat sauce and parmesan",
+    "FoodPrice": 9.25,
+    "isFav": true
+  },
+  {
+    "id": "6",
+    "FoodName": "Grilled Chicken Sandwich",
+    "FoodDes": "Marinated chicken breast with lettuce and mayo",
+    "FoodPrice": 7.5,
+    "isFav": false
+  },
+  {
+    "id": "7",
+    "FoodName": "Veggie Wrap",
+    "FoodDes": "Mixed grilled vegetables with hummus in a tortilla",
+    "FoodPrice": 6.0,
+    "isFav": false
+  },
+  {
+    "id": "8",
+    "FoodName": "French Fries",
+    "FoodDes": "Crispy golden fries with a side of ketchup",
+    "FoodPrice": 3.0,
+    "isFav": true
+  },
+  {
+    "id": "9",
+    "FoodName": "Chocolate Lava Cake",
+    "FoodDes": "Warm chocolate cake with a gooey center",
+    "FoodPrice": 5.0,
+    "isFav": false
+  },
+  {
+    "id": "10",
+    "FoodName": "Greek Salad",
+    "FoodDes": "Tomatoes, cucumbers, olives, feta cheese, and olive oil",
+    "FoodPrice": 6.75,
+    "isFav": false
+  },
+  {
+    "id": "11",
+    "FoodName": "Fish and Chips",
+    "FoodDes": "Battered fish with fries and tartar sauce",
+    "FoodPrice": 10.0,
+    "isFav": false
+  },
+  {
+    "id": "12",
+    "FoodName": "Chicken Tikka Masala",
+    "FoodDes": "Spiced chicken in creamy tomato sauce served with rice",
+    "FoodPrice": 12.5,
+    "isFav": true
+  },
+  {
+    "id": "13",
+    "FoodName": "Avocado Toast",
+    "FoodDes": "Toasted bread topped with smashed avocado and chili flakes",
+    "FoodPrice": 4.5,
+    "isFav": false
+  },
+  {
+    "id": "14",
+    "FoodName": "Beef Tacos",
+    "FoodDes": "Soft tortillas filled with seasoned beef and toppings",
+    "FoodPrice": 8.0,
+    "isFav": true
+  },
+  {
+    "id": "15",
+    "FoodName": "Pancakes",
+    "FoodDes": "Fluffy pancakes served with maple syrup and butter",
+    "FoodPrice": 5.5,
+    "isFav": false
+  }
+]
