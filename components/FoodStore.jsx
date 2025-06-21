@@ -21,4 +21,5 @@ export const useFoodStore = create((set) => ({
         f.id === id ? { ...f, isFav: !f.isFav } : f
       ),
     })),
+    
 }));

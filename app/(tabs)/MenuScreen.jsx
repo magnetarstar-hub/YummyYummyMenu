@@ -16,8 +16,8 @@ export default function MenuScreen() {
     }
 
     const results = foodList.filter(item =>
-      typeof item.name === 'string' &&
-      item.name.toLowerCase().includes(searchQuery)
+      typeof item.FoodName === 'string' &&
+      item.FoodName.toLowerCase().includes(searchQuery)
     );
 
     setFilteredData(results);
