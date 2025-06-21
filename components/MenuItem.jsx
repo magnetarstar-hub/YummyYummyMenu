@@ -2,15 +2,29 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
-import { useState } from "react";
+import { useFoodStore } from "../components/FoodStore"; // adjust path as needed
+
 export default function MenuItem({ item }) {
-  const { FoodName, FoodDes, FoodPrice } = item;
+  const { id } = item;
 
-  const [isFav, setIsFav] = useState(item.isFav);
+  const savedItem = useFoodStore((state) =>
+    state.savedFoods.find((f) => f.id === id)
+  );
 
+  const addFood = useFoodStore((state) => state.addFood);
+  const toggleFavorite = useFoodStore((state) => state.toggleFavorite);
+
+  const isFav = savedItem?.isFav ?? false;
+  const FoodName = savedItem?.FoodName ?? item.FoodName;
+  const FoodDes = savedItem?.FoodDes ?? item.FoodDes;
+  const FoodPrice = savedItem?.FoodPrice ?? item.FoodPrice;
 
   const onFav = () => {
-    setIsFav(pre => !pre);
+    if (!savedItem) {
+      addFood({ ...item, isFav: true });
+    } else {
+      toggleFavorite(id);
+    }
   };
 
   return (
@@ -20,7 +34,7 @@ export default function MenuItem({ item }) {
         <Text style={styles.price}>${FoodPrice}</Text>
 
         <TouchableOpacity
-          onPress={() => onFav(item)}
+          onPress={onFav}
           style={styles.favoriteButton}
           accessibilityLabel={isFav ? 'Remove from favorites' : 'Add to favorites'}
         >
@@ -51,6 +65,8 @@ export default function MenuItem({ item }) {
     </View>
   );
 }
+
+
 
 const styles = StyleSheet.create({
   widget: {

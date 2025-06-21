@@ -1,30 +1,38 @@
-import React  from "react";
-import { View, FlatList, Text, Button, StyleSheet, Image } from 'react-native';
-import {useFoodStore} from "../../components/FoodStore"
+import React from "react";
+import { View, FlatList, Text, Button, StyleSheet } from 'react-native';
+import { useFoodStore } from "../../components/FoodStore";
 
-export default function FavScreen(){
-    const { savedFood, removeFood} = useFoodStore();
-    const renderItem = ({item}) =>{
-        const {
-        name,
-        desc,
-        price,
-    } = item || {};
-    }
+export default function FavScreen() {
+  const savedFood = useFoodStore((state) => state.savedFoods);
+  const removeFood = useFoodStore((state) => state.removeBook);
+
+  const renderItem = ({ item }) => {
+    const { FoodName, FoodDes, FoodPrice, id } = item;
+
     return (
-        <View style={styles.container}>
-          {savedFood.length === 0 ? (
-            <Text style={styles.empty}>Your library is empty. Add books from the Home screen.</Text>
-          ) : (
-            <FlatList
-              data={savedFood}
-              keyExtractor={(item) => item.id}
-              renderItem={renderItem}
-              contentContainerStyle={styles.listContainer}
-              numColumns={3}
-            />
-          )}
-        </View>
+      <View style={styles.itemCard}>
+      <Text style={styles.name}>{FoodName}</Text>
+      <Text style={styles.desc}>{FoodDes}</Text>
+      <Text style={styles.price}>${FoodPrice}</Text>
+      <Button title="Remove" onPress={() => removeFood(id)} />
+</View>
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      {savedFood.length === 0 ? (
+        <Text style={styles.empty}>Your library is empty. Add books from the Home screen.</Text>
+      ) : (
+        <FlatList
+          data={savedFood}
+          keyExtractor={(item) => item.id}
+          renderItem={renderItem}
+          contentContainerStyle={styles.listContainer}
+          numColumns={3}
+        />
+      )}
+    </View>
   );
 }
 
