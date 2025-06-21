@@ -1,5 +1,6 @@
 import React from "react";
-import { View, FlatList, Text, Button, StyleSheet } from 'react-native';
+import { View, FlatList, Text, StyleSheet, Pressable } from 'react-native';
+import Animated, { FadeIn, FadeOut, ZoomIn, ZoomOut } from 'react-native-reanimated';
 import { useFoodStore } from "../../components/FoodStore";
 
 export default function FavScreen() {
@@ -10,26 +11,36 @@ export default function FavScreen() {
     const { FoodName, FoodDes, FoodPrice, id } = item;
 
     return (
-      <View style={styles.itemCard}>
-      <Text style={styles.name}>{FoodName}</Text>
-      <Text style={styles.desc}>{FoodDes}</Text>
-      <Text style={styles.price}>${FoodPrice}</Text>
-      <Button title="Remove" onPress={() => removeFood(id)} />
-</View>
+      <Animated.View
+        entering={ZoomIn.duration(300)}
+        exiting={ZoomOut.duration(300)}
+        style={styles.itemCard}
+      >
+        <Text style={styles.name}>{FoodName}</Text>
+        <Text style={styles.desc}>{FoodDes}</Text>
+        <Text style={styles.price}>${FoodPrice}</Text>
+
+        <Pressable style={styles.removeButton} onPress={() => removeFood(id)}>
+          <Text style={styles.removeText}>Remove</Text>
+        </Pressable>
+      </Animated.View>
     );
   };
 
   return (
     <View style={styles.container}>
       {savedFood.length === 0 ? (
-        <Text style={styles.empty}>Your library is empty. Add books from the Home screen.</Text>
+        <Animated.Text entering={FadeIn} style={styles.empty}>
+          Your favorites are empty. Add foods from the menu.
+        </Animated.Text>
       ) : (
         <FlatList
           data={savedFood}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
           renderItem={renderItem}
           contentContainerStyle={styles.listContainer}
-          numColumns={3}
+          numColumns={2}
+          columnWrapperStyle={styles.row}
         />
       )}
     </View>
@@ -44,54 +55,59 @@ const styles = StyleSheet.create({
   },
   empty: {
     textAlign: 'center',
-    marginTop: 50,
+    marginTop: 60,
     fontSize: 16,
-    color: '#888',
+    color: '#999',
   },
   listContainer: {
     paddingBottom: 100,
     gap: 12,
   },
+  row: {
+    justifyContent: 'space-between',
+  },
   itemCard: {
-    backgroundColor: '#f9f9f9',
-    borderRadius: 12,
-    padding: 12,
-    margin: 8,
     flex: 1,
+    backgroundColor: '#ffffff',
+    borderRadius: 16,
+    padding: 16,
+    margin: 8,
     alignItems: 'center',
-    elevation: 3,
+    elevation: 4,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
   },
   name: {
-    fontSize: 16,
-    color: '#27ae60',
-    fontWeight: 'bold',
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#2c3e50',
     textAlign: 'center',
     marginBottom: 4,
   },
   desc: {
-    fontSize: 13,
-    color: '#000',
+    fontSize: 14,
+    color: '#7f8c8d',
     textAlign: 'center',
-    marginBottom: 4,
+    marginBottom: 6,
   },
   price: {
-    fontSize: 15,
-    color: '#27ae60',
+    fontSize: 16,
     fontWeight: '600',
+    color: '#27ae60',
+    marginBottom: 10,
   },
   removeButton: {
-    marginTop: 10,
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    backgroundColor: '#ff6b6b',
-    borderRadius: 6,
+    backgroundColor: '#e74c3c',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    marginTop: 6,
   },
   removeText: {
     color: '#fff',
     fontWeight: 'bold',
+    fontSize: 14,
   },
 });

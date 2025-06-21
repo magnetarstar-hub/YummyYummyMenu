@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
-import { useFoodStore } from "../components/FoodStore"; // adjust path as needed
+import { useFoodStore } from "../components/FoodStore";
 
 export default function MenuItem({ item }) {
   const { id } = item;
