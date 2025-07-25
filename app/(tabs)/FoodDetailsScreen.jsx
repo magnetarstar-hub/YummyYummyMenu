@@ -1,9 +1,8 @@
-import React from "react";
-import { View, StyleSheet, Button, Image, ActivityIndicator } from "react-native";
-import { useRouter, useLocalSearchParams } from 'expo-router';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { useFonts, Montserrat_400Regular, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
+import { Montserrat_400Regular, Montserrat_700Bold, useFonts } from '@expo-google-fonts/montserrat';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { ActivityIndicator, Button, Image, StyleSheet, View } from "react-native";
 
 export default function FoodDetails() {
   const { name, desc, price, image } = useLocalSearchParams();
@@ -49,7 +48,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  
+
   infoContainer: {
     backgroundColor: '#f9f9f9',
     padding: 50,

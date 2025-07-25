@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
-  View,
   FlatList,
-  StyleSheet,
-  TextInput,
-  Text,
   Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
 } from 'react-native';
 import Animated, { FadeIn, ZoomIn, ZoomOut } from 'react-native-reanimated';
 import foodList from '../../components/foodlist.json';
@@ -45,7 +45,7 @@ export default function MenuScreen() {
       setLikedItems((prev) => prev.filter((i) => i !== item.id));
     } else {
       setLikedItems((prev) => [...prev, item.id]);
-      addFood(item); 
+      addFood(item);
     }
   };
 

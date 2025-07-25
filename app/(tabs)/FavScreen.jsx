@@ -1,6 +1,5 @@
-import React from "react";
-import { View, FlatList, Text, StyleSheet, Pressable } from 'react-native';
-import Animated, { FadeIn, FadeOut, ZoomIn, ZoomOut } from 'react-native-reanimated';
+import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import Animated, { FadeIn, ZoomIn, ZoomOut } from 'react-native-reanimated';
 import { useFoodStore } from "../../components/FoodStore";
 
 export default function FavScreen() {
