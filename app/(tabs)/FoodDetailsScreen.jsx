@@ -1,8 +1,14 @@
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { Montserrat_400Regular, Montserrat_700Bold, useFonts } from '@expo-google-fonts/montserrat';
-import { useLocalSearchParams, useRouter } from 'expo-router';
-import { ActivityIndicator, Button, Image, StyleSheet, View } from "react-native";
+import {
+  Montserrat_400Regular,
+  Montserrat_700Bold,
+  useFonts,
+} from "@expo-google-fonts/montserrat";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import { styled } from "nativewind";
+import { ActivityIndicator, Button, Image, View } from "react-native";
+
+const ThemedButton = styled(Button);
+const ThemedImage = styled(Image);
 
 export default function FoodDetails() {
   const { name, desc, price, image } = useLocalSearchParams();
@@ -15,73 +21,60 @@ export default function FoodDetails() {
 
   if (!fontsLoaded) {
     return (
-      <View style={styles.loadingContainer}>
+      <View className="flex-1 justify-center items-center">
         <ActivityIndicator size="large" color="#27ae60" />
       </View>
     );
   }
 
   return (
-    <ThemedView style={styles.container}>
-      <Image source={{ uri: image }} style={styles.image} />
+    <View className="flex-1 p-5 bg-Background-light dark:bg-Background-dark">
+      <ThemedImage
+        source={{ uri: image }}
+        className="w-full h-64 rounded-lg mb-6"
+      />
 
-      <ThemedView style={styles.infoContainer}>
-        <ThemedText style={styles.name}>{name}</ThemedText>
-        <ThemedText style={styles.description}>{desc}</ThemedText>
-        <ThemedText style={styles.price}>${price}</ThemedText>
-      </ThemedView>
-
-      <View style={styles.buttonContainer}>
-        <Button title="Back to Menu" onPress={() => router.push("/MenuScreen")} />
+      <View className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md mb-6">
+        <View>
+          <ThemedText className="text-2xl font-extrabold text-Primary-light dark:text-Primary-dark mb-2 font-montserrat-bold">
+            {name}
+          </ThemedText>
+          <ThemedText className="text-base text-Secondary-light dark:text-Secondary-dark font-semibold mb-2 leading-6 font-montserrat-regular">
+            {desc}
+          </ThemedText>
+          <ThemedText className="text-xl font-semibold text-green-600 font-montserrat-bold">
+            ${price}
+          </ThemedText>
+        </View>
       </View>
-    </ThemedView>
+
+      <View className="mt-6">
+        <Button
+          title="Back to Menu"
+          onPress={() => router.push("/MenuScreen")}
+        />
+      </View>
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
+/* NativeWind config assumes you extended tailwind.config.js to include:
+  colors: {
+    Background: {
+      light: '#FFF8E7',
+      dark: '#1F1B24'
+    },
+    Primary: {
+      light: '#2C5F2D',
+      dark: '#A8D5BA'
+    },
+    Secondary: {
+      light: '#7E7E7E',
+      dark: '#A9A9A9'
+    }
   },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  infoContainer: {
-    backgroundColor: '#f9f9f9',
-    padding: 50,
-    borderRadius: 10,
-    elevation: 2,
-    justifyContent : "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  name: {
-    fontSize: 24,
-    fontWeight: '700',
-    fontFamily: 'Montserrat_700Bold',
-    marginBottom: 10,
-    color: '#000',
-  },
-  description: {
-    fontSize: 16,
-    color: '#666',
-    fontWeight: '700',
-    marginBottom: 10,
-    lineHeight: 22,
-    fontFamily: 'Montserrat_400Regular',
-  },
-  price: {
-    fontSize: 20,
-    color: '#27ae60',
-    fontWeight: '600',
-    fontFamily: 'Montserrat_700Bold',
-  },
-  buttonContainer: {
-    marginTop: 30,
-  },
-});
+  fontFamily: {
+    montserrat: ['Montserrat_400Regular', 'sans-serif'],
+    'montserrat-bold': ['Montserrat_700Bold', 'sans-serif'],
+  }
+*/

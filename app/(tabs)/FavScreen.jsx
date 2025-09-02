@@ -1,5 +1,5 @@
-import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
-import Animated, { FadeIn, ZoomIn, ZoomOut } from 'react-native-reanimated';
+import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
+import Animated, { FadeIn, ZoomIn, ZoomOut } from "react-native-reanimated";
 import { useFoodStore } from "../../components/FoodStore";
 
 export default function FavScreen() {
@@ -50,63 +50,63 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   empty: {
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: 60,
     fontSize: 16,
-    color: '#999',
+    color: "#999",
   },
   listContainer: {
     paddingBottom: 100,
     gap: 12,
   },
   row: {
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
   },
   itemCard: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
     borderRadius: 16,
     padding: 16,
     margin: 8,
-    alignItems: 'center',
+    alignItems: "center",
     elevation: 4,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.15,
     shadowRadius: 4,
   },
   name: {
     fontSize: 18,
-    fontWeight: '700',
-    color: '#2c3e50',
-    textAlign: 'center',
+    fontWeight: "700",
+    color: "#2c3e50",
+    textAlign: "center",
     marginBottom: 4,
   },
   desc: {
     fontSize: 14,
-    color: '#7f8c8d',
-    textAlign: 'center',
+    color: "#7f8c8d",
+    textAlign: "center",
     marginBottom: 6,
   },
   price: {
     fontSize: 16,
-    fontWeight: '600',
-    color: '#27ae60',
+    fontWeight: "600",
+    color: "#27ae60",
     marginBottom: 10,
   },
   removeButton: {
-    backgroundColor: '#e74c3c',
+    backgroundColor: "#e74c3c",
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 8,
     marginTop: 6,
   },
   removeText: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
     fontSize: 14,
   },
 });

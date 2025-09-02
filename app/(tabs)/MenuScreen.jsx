@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import {
   FlatList,
   Pressable,
@@ -6,13 +6,13 @@ import {
   Text,
   TextInput,
   View,
-} from 'react-native';
-import Animated, { FadeIn, ZoomIn, ZoomOut } from 'react-native-reanimated';
-import foodList from '../../components/foodlist.json';
-import { useFoodStore } from '../../components/FoodStore';
+} from "react-native";
+import Animated, { FadeIn, ZoomIn, ZoomOut } from "react-native-reanimated";
+import foodList from "../../components/foodlist.json";
+import { useFoodStore } from "../../components/FoodStore";
 
 export default function MenuScreen() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [filteredData, setFilteredData] = useState(foodList);
   const [expandedItems, setExpandedItems] = useState([]);
   const [likedItems, setLikedItems] = useState([]);
@@ -21,13 +21,13 @@ export default function MenuScreen() {
 
   const searchFood = () => {
     const searchQuery = query.trim().toLowerCase();
-    if (searchQuery === '') {
+    if (searchQuery === "") {
       setFilteredData(foodList);
     } else {
       const results = foodList.filter(
         (item) =>
-          typeof item.FoodName === 'string' &&
-          item.FoodName.toLowerCase().includes(searchQuery)
+          typeof item.FoodName === "string" &&
+          item.FoodName.toLowerCase().includes(searchQuery),
       );
       setFilteredData(results);
     }
@@ -35,7 +35,7 @@ export default function MenuScreen() {
 
   const toggleExpanded = (id) => {
     setExpandedItems((prev) =>
-      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id],
     );
   };
 
@@ -63,19 +63,26 @@ export default function MenuScreen() {
         <Text style={styles.name}>{FoodName}</Text>
 
         <Text style={styles.desc}>
-          {isExpanded ? FoodDes : FoodDes.slice(0, 60) + (FoodDes.length > 60 ? '...' : '')}
+          {isExpanded
+            ? FoodDes
+            : FoodDes.slice(0, 60) + (FoodDes.length > 60 ? "..." : "")}
         </Text>
 
         {FoodDes.length > 60 && (
           <Pressable onPress={() => toggleExpanded(id)}>
-            <Text style={styles.readMore}>{isExpanded ? 'Read Less' : 'Read More'}</Text>
+            <Text style={styles.readMore}>
+              {isExpanded ? "Read Less" : "Read More"}
+            </Text>
           </Pressable>
         )}
 
         <Text style={styles.price}>${FoodPrice}</Text>
 
         <View style={styles.buttonRow}>
-          <Pressable style={styles.viewButton} onPress={() => console.log('View more')}>
+          <Pressable
+            style={styles.viewButton}
+            onPress={() => console.log("View more")}
+          >
             <Text style={styles.buttonText}>View More</Text>
           </Pressable>
 
@@ -128,108 +135,108 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   input: {
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderWidth: 1,
     padding: 12,
     borderRadius: 12,
     marginBottom: 10,
     fontSize: 16,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: "#f5f5f5",
   },
   searchButton: {
-    backgroundColor: '#27ae60',
+    backgroundColor: "#27ae60",
     paddingVertical: 10,
     borderRadius: 10,
-    alignItems: 'center',
+    alignItems: "center",
     marginBottom: 16,
   },
   searchButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
     fontSize: 16,
   },
   empty: {
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: 60,
     fontSize: 16,
-    color: '#999',
+    color: "#999",
   },
   listContainer: {
     paddingBottom: 100,
     gap: 12,
   },
   row: {
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
   },
   itemCard: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
     borderRadius: 16,
     padding: 16,
     margin: 8,
-    alignItems: 'center',
+    alignItems: "center",
     elevation: 4,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.15,
     shadowRadius: 4,
   },
   name: {
     fontSize: 18,
-    fontWeight: '700',
-    color: '#2c3e50',
-    textAlign: 'center',
+    fontWeight: "700",
+    color: "#2c3e50",
+    textAlign: "center",
     marginBottom: 4,
   },
   desc: {
     fontSize: 14,
-    color: '#7f8c8d',
-    textAlign: 'center',
+    color: "#7f8c8d",
+    textAlign: "center",
   },
   readMore: {
-    color: '#2980b9',
+    color: "#2980b9",
     fontSize: 13,
     marginTop: 4,
     marginBottom: 8,
-    textAlign: 'center',
+    textAlign: "center",
   },
   price: {
     fontSize: 16,
-    fontWeight: '600',
-    color: '#27ae60',
+    fontWeight: "600",
+    color: "#27ae60",
     marginTop: 6,
   },
   buttonRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     gap: 8,
     marginTop: 10,
   },
   viewButton: {
-    backgroundColor: '#2980b9',
+    backgroundColor: "#2980b9",
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 8,
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
   },
   likeButton: {
-    backgroundColor: '#e67e22',
+    backgroundColor: "#e67e22",
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 8,
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
   },
   likedButton: {
-    backgroundColor: '#c0392b',
+    backgroundColor: "#c0392b",
   },
   buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
     fontSize: 14,
   },
 });
